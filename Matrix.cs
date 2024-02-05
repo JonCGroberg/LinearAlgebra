@@ -29,17 +29,13 @@ public class Matrix
 
     public override string ToString()
     {
-        var output = $"{Rows}x{Columns} Matrix\n";
+        var output = $"{Rows}x{Columns} Matrix";
         for (var r = 0; r < Rows; r++)
         {
+            output += "\n";
             for (var c = 0; c < Columns; c++)
             {
-                output += $" {matrix[r,c]} ";
-            }
-
-            if (r < Rows - 1)
-            {
-                output += "\n";
+                output += $" {matrix[r, c]} ";
             }
         }
 
