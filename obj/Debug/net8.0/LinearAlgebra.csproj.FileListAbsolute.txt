@@ -1,0 +1,12 @@
+/home/jon/RiderProjects/LinearAlgebra/bin/Debug/net8.0/LinearAlgebra.deps.json
+/home/jon/RiderProjects/LinearAlgebra/bin/Debug/net8.0/LinearAlgebra.dll
+/home/jon/RiderProjects/LinearAlgebra/bin/Debug/net8.0/LinearAlgebra.pdb
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.GeneratedMSBuildEditorConfig.editorconfig
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.AssemblyInfoInputs.cache
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.AssemblyInfo.cs
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.csproj.CoreCompileInputs.cache
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.dll
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/refint/LinearAlgebra.dll
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.pdb
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/ref/LinearAlgebra.dll
+/home/jon/RiderProjects/LinearAlgebra/obj/Debug/net8.0/LinearAlgebra.sourcelink.json
