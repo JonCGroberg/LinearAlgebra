@@ -1,41 +1,55 @@
-﻿namespace LinearAlgebra;
+﻿using System.Runtime.CompilerServices;
+
+namespace LinearAlgebra;
 
 public class Matrix
 {
-    private int[,] matrix { get; }
-    private int Columns { get; }
-    private int Rows { get; }
-    private int Rank { get; }
+    private readonly int[,] _matrix;
+    public int Columns { get; }
+    public int Rows { get; }
+    public int Rank { get; }
 
     public Matrix(int columns, int rows)
     {
-        this.Columns = columns;
-        this.Rows = rows;
-        this.matrix = new int[rows, columns];
-        this.Rank = this.matrix.Rank;
+        Rows = rows;
+        Columns = columns;
+        _matrix = new int[rows, columns];
+        Rank = _matrix.Rank;
     }
 
     public Matrix(int[,] matrix)
     {
-        this.matrix = matrix;
-        this.Rows = matrix.GetLength(0);
-        this.Columns = matrix.GetLength(1);
+        Rows = matrix.GetLength(0);
+        Columns = matrix.GetLength(1);
+        _matrix = matrix;
+        Rank = _matrix.Rank;
     }
 
-    public int[] Size()
+    public (int, int) Size()
     {
-        return [Rows, Columns];
+        return (Rows, Columns);
+    }
+
+    public static void rowReducedEchelonForm()
+    {
+        // 1. Find the leftmost non-zero column, this is the **pivot column**
+        // 2. Select the **pivot** in the pivot column, swap any non zero row to the top to create a pivot, or do nothing if there exists a pivot already.
+        // 3. Use **row replacement** to make the positions underneath the pivot 0’s
+        // 4. This row is now complete! Repeat steps 1-4 to the sub-matrix consisting of the rest of the rows until there are no more non-zero rows left to modify
+        // 5. Starting at the rightmost pivot, create 0’s above each pivot.
+        // 6. Scale the row so the pivot becomes 1
+        // 7. Repeat 5-6 for the next pivots until there are no more pivots to modify.
     }
 
     public override string ToString()
     {
-        var output = $"{Rows}x{Columns} Matrix";
-        for (var r = 0; r < Rows; r++)
+        var output = $"{Rows}x{Columns} Matrix"; // Header
+        for (var r = 0; r < Rows; r++) // Rows 
         {
             output += "\n";
             for (var c = 0; c < Columns; c++)
             {
-                output += $" {matrix[r, c]} ";
+                output += $" {_matrix[r, c]} ";
             }
         }
 

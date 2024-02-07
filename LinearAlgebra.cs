@@ -8,5 +8,7 @@ public class LinearAlgebra
         var matrix = new Matrix(array);
 
         Console.WriteLine(matrix);
+        Console.WriteLine("Size: " + matrix.Size());
+        Console.WriteLine("Rank: " + matrix.Rank);
     }
 }
