@@ -10,5 +10,6 @@ public class LinearAlgebra
         Console.WriteLine(matrix);
         Console.WriteLine("Size: " + matrix.Size());
         Console.WriteLine("Rank: " + matrix.Rank);
+        Console.WriteLine(matrix.ToRowReducedEchelonForm());
     }
 }

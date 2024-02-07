@@ -30,7 +30,7 @@ public class Matrix
         return (Rows, Columns);
     }
 
-    public static void rowReducedEchelonForm()
+    public Matrix ToRowReducedEchelonForm()
     {
         // 1. Find the leftmost non-zero column, this is the **pivot column**
         // 2. Select the **pivot** in the pivot column, swap any non zero row to the top to create a pivot, or do nothing if there exists a pivot already.
@@ -39,6 +39,7 @@ public class Matrix
         // 5. Starting at the rightmost pivot, create 0’s above each pivot.
         // 6. Scale the row so the pivot becomes 1
         // 7. Repeat 5-6 for the next pivots until there are no more pivots to modify.
+        return new Matrix(_matrix);
     }
 
     public override string ToString()
