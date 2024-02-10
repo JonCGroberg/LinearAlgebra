@@ -30,15 +30,32 @@ public class Matrix
         return (Rows, Columns);
     }
 
+    // Backward Phase
     public Matrix ToRowReducedEchelonForm()
+    {
+        Matrix echelonFormMatrix;
+        
+        // Forward Phase (First convert to echelon form)
+        echelonFormMatrix = new Matrix(_matrix).ToEchelonForm();
+        
+        // Backward Phase
+        // 5. Starting at the rightmost pivot, create 0’s above each pivot.
+        // 6. Scale the row so the pivot becomes 1
+        // 7. Repeat 5-6 for the next pivots until there are no more pivots to modify.
+        return new Matrix(_matrix);
+    }
+
+    // Forward Phase
+    public static void EchelonForm()
+    {
+    }
+
+    public Matrix ToEchelonForm()
     {
         // 1. Find the leftmost non-zero column, this is the **pivot column**
         // 2. Select the **pivot** in the pivot column, swap any non zero row to the top to create a pivot, or do nothing if there exists a pivot already.
         // 3. Use **row replacement** to make the positions underneath the pivot 0’s
         // 4. This row is now complete! Repeat steps 1-4 to the sub-matrix consisting of the rest of the rows until there are no more non-zero rows left to modify
-        // 5. Starting at the rightmost pivot, create 0’s above each pivot.
-        // 6. Scale the row so the pivot becomes 1
-        // 7. Repeat 5-6 for the next pivots until there are no more pivots to modify.
         return new Matrix(_matrix);
     }
 
