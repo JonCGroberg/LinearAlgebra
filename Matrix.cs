@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.Design;
 
 namespace LinearAlgebra;
 
@@ -34,10 +34,10 @@ public class Matrix
     public Matrix ToRowReducedEchelonForm()
     {
         Matrix echelonFormMatrix;
-        
+
         // Forward Phase (First convert to echelon form)
         echelonFormMatrix = new Matrix(_matrix).ToEchelonForm();
-        
+
         // Backward Phase
         // 5. Starting at the rightmost pivot, create 0’s above each pivot.
         // 6. Scale the row so the pivot becomes 1
@@ -56,16 +56,31 @@ public class Matrix
         // 2. Select the **pivot** in the pivot column, swap any non zero row to the top to create a pivot, or do nothing if there exists a pivot already.
         // 3. Use **row replacement** to make the positions underneath the pivot 0’s
         // 4. This row is now complete! Repeat steps 1-4 to the sub-matrix consisting of the rest of the rows until there are no more non-zero rows left to modify
+        int leftMostNonZeroColumn = GetLeftMostNonZeroColumn();
+        Console.WriteLine(leftMostNonZeroColumn);
         return new Matrix(_matrix);
+    }
+
+    private int GetLeftMostNonZeroColumn()
+    {
+        for (int r = 0; r < Rows; r++)
+        {
+            for (int c = 0; c < Columns; c++)
+            {
+                if (_matrix[r, c] != 0) return c;
+            }
+        }
+
+        throw new InvalidOperationException();
     }
 
     public override string ToString()
     {
         var output = $"{Rows}x{Columns} Matrix"; // Header
-        for (var r = 0; r < Rows; r++) // Rows 
+        for (int r = 0; r < Rows; r++) // Rows 
         {
             output += "\n";
-            for (var c = 0; c < Columns; c++)
+            for (int c = 0; c < Columns; c++)
             {
                 output += $" {_matrix[r, c]} ";
             }
